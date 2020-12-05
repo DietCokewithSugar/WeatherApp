@@ -6,10 +6,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * Retrofit构建器
  */
-
 object ServiceCreator {
 
-    private const val BASE_URL = "http://api.caiyun.com/"
+    private const val BASE_URL = "https://api.caiyunapp.com/"
 
     private val retrofit = Retrofit.Builder()//构建Retrofit动态代理对象
         .baseUrl(BASE_URL)                   //构建完成后可调用接口的所有方法

@@ -1,8 +1,6 @@
 package com.example.weather_app.ui.place
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.example.weather_app.logic.Repository
 import com.example.weather_app.logic.model.Place
 
@@ -20,13 +18,18 @@ class PlaceViewModel : ViewModel(){
     val placeList = ArrayList<Place>()
 
     //使用switchMap观察这个对象，使用searchPlace()时,会自动转换为switchMap方法
-    val placeLiveData = Transformations.switchMap(searchLiveData){ query->
+    val placeLiveData = Transformations.switchMap(searchLiveData) { query ->
         Repository.searchPlaces(query)
     }
 
-    fun searchPlaces(query: String){
+    fun searchPlaces(query: String) {
         searchLiveData.value = query
     }
 
+    fun savePlace(place: Place,count: Int) = Repository.savePlace(place,count)
+
+    fun getSavedPlace(count: Int) = Repository.getSavedPlace(count)
+
+    fun isPlaceSaved(count: Int) = Repository.isPlaceSaved(count)
 
 }
