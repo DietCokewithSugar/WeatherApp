@@ -10,6 +10,9 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlin.coroutines.CoroutineContext
 
+/**
+ * 仓库层统一封装入口
+ */
 object Repository {
 
     fun searchPlaces(query: String) = fire(Dispatchers.IO) {
@@ -52,6 +55,7 @@ object Repository {
 
     fun isPlaceSaved(count: Int) = PlaceDao.isPlaceSaved(count)
 
+    //捕获JSON的status异常
     private fun <T> fire(context: CoroutineContext, block: suspend () -> Result<T>) =
         liveData<Result<T>>(context) {
             val result = try {

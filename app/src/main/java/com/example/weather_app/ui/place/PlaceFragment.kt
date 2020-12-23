@@ -53,6 +53,7 @@ class PlaceFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)
         recyclerView.adapter = adapter
+        //实时发现搜索框内容变化
         searchPlaceEdit.addTextChangedListener { editable ->
             val content = editable.toString()
             if (content.isNotEmpty()) {

@@ -11,6 +11,7 @@ import com.example.weather_app.logic.model.Place
 import com.example.weather_app.ui.weather.WeatherActivity
 import kotlinx.android.synthetic.main.activity_weather.*
 
+//RecycleView适配器
 class PlaceAdapter(private val fragment: PlaceFragment, private val placeList: List<Place>) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
 
     var count = 0

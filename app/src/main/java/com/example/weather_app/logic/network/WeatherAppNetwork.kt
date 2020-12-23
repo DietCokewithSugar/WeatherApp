@@ -9,14 +9,17 @@ import kotlin.coroutines.suspendCoroutine
 
 object WeatherAppNetwork {
 
+    //创建Retrofit动态代理对象
     private val weatherService = ServiceCreator.create(WeatherService::class.java)
 
     suspend fun getDailyWeather(lng: String, lat: String) = weatherService.getDailyWeather(lng, lat).await()
 
     suspend fun getRealtimeWeather(lng: String, lat: String) = weatherService.getRealtimeWeather(lng, lat).await()
 
+    //创建Retrofit动态代理对象
     private val placeService = ServiceCreator.create(PlaceService::class.java)
 
+    //搜索城市数据请求，挂起函数
     suspend fun searchPlaces(query: String) = placeService.searchPlaces(query).await()
 
     private suspend fun <T> Call<T>.await(): T {

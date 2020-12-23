@@ -6,6 +6,7 @@ import com.example.weather_app.logic.model.Place
 
 /**
  * 链接逻辑层与ui界面
+ * 旋转时数据不会丢失
  */
 
 class PlaceViewModel : ViewModel(){

@@ -3,6 +3,7 @@ package com.example.weather_app.logic.model
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
+//使用List集合对JSON文件映射
 class DailyResponse(val status: String, val result: Result) {
 
     class Result(val daily: Daily)
